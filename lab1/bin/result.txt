@@ -1,0 +1,12 @@
+1 : <PROC, - >
+1 : <IDN, inc>
+1 : <SEMI, - >
+2 : <INT, - >
+2 : <IDN, i>
+2 : <SEMI, - >
+3 : <IDN, i>
+3 : <ASSI, - >
+3 : <IDN, i>
+3 : <ADD, - >
+3 : <CONST, 1>
+3 : <SEMI, - >
