@@ -15,11 +15,11 @@ public class Production{
 	}
 	
 	public Production(String productionString) {
-		String regex = "^(\\w\\s)::=\\s(.*)$";
+		String regex = "^(.*\\s)::=\\s(.*)$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(productionString);
 		if(matcher.find()) {
-			if(matcher.group(2).equalsIgnoreCase("epy")) {
+			if(matcher.group(2).equals("ε")) {
 				productionString = matcher.group(1) + "^";
 				this.production = Arrays.asList(productionString.split(" "));
 			} else {

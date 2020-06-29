@@ -88,8 +88,13 @@ public class Closure{
 		while(iterator.hasNext()) {
 			Production production = iterator.next();
 			String string = production.toString();
-			if(String.valueOf(string.charAt(0)).equals(nonterminal)) {
-				result.add(new Production(production.getProductionArray()));
+			String regex = "^(.+?)\\s.*$";
+			Pattern pattern = Pattern.compile(regex);
+			Matcher matcher = pattern.matcher(string);
+			if(matcher.find()) {
+				if(matcher.group(1).equalsIgnoreCase(nonterminal)) {
+					result.add(new Production(production.getProductionArray()));
+				}				
 			}
 		}
 		return result;

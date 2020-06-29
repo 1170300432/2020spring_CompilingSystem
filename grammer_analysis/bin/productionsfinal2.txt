@@ -1,0 +1,86 @@
+S ::= Func Funcs
+Args ::= ε
+Assign_stmt ::= Expression ;
+Block ::= { Define_stmts Stmts }
+Block_stmt ::= { Stmts }
+Bool_expression ::= ε
+Bool_expression ::= if ( Logical_expression ) Block_stmt Result
+Call_func ::= ε
+Call_func ::= ( Es )
+Compare_op ::= !=
+Compare_op ::= <
+Compare_op ::= <=
+Compare_op ::= ==
+Compare_op ::= >
+Compare_op ::= >=
+Const ::= CHAR
+Const ::= FLOAT
+Const ::= Num_const
+Const ::= STR
+Define_stmt ::= Type IDN Init Vars ;
+Define_stmts ::= ε
+Define_stmts ::= Define_stmt Define_stmts
+Equal_op ::= %=
+Equal_op ::= *=
+Equal_op ::= +=
+Equal_op ::= -=
+Equal_op ::= /=
+Equal_op ::= =
+Es ::= IIsnull_expr Isnull_es
+Expression ::= Value Operation
+Factor ::= ( Value )
+Factor ::= Const
+Factor ::= IDN Call_func
+Func ::= Type IDN ( Args ) Func_body
+Func_body ::= ;
+Func_body ::= Block
+Funcs ::= ε
+Funcs ::= Func Funcs
+Init ::= ε
+Init ::= = Expression
+Init ::= [ Num_const ]
+Isnull_es ::= ε
+Isnull_es ::= , IIsnull_expr Isnull_es
+IIsnull_expr ::= ε
+IIsnull_expr ::= Expression
+Item ::= Factor Item'
+Item' ::= ε
+Item' ::= % Factor Item'
+Item' ::= * Factor Item'
+Item' ::= / Factor Item'
+Iteration_stmt ::= do Block_stmt while ( Logical_expression ) ;
+Iteration_stmt ::= for ( IIsnull_expr ; IIsnull_expr ; IIsnull_expr ) Block_stmt
+Iteration_stmt ::= while ( Logical_expression ) Block_stmt
+Jump_stmt ::= break ;
+Jump_stmt ::= continue ;
+Jump_stmt ::= return IIsnull_expr ;
+Logical_expression ::= ! Expression bool_expression
+Logical_expression ::= Expression bool_expression
+Num_const ::= INT10
+Num_const ::= INT16
+Num_const ::= INT8
+Operation ::= ε
+Operation ::= Compare_op Value
+Operation ::= Equal_op Value
+Result ::= ε
+Result ::= else Block_stmt
+Stmt ::= Assign_stmt
+Stmt ::= Bool_expression
+Stmt ::= Iteration_stmt
+Stmt ::= Jump_stmt
+Stmts ::= ε
+Stmts ::= Stmt Stmts
+Type ::= char
+Type ::= double
+Type ::= float
+Type ::= int
+Type ::= long
+Type ::= short
+Type ::= unsigned Type
+Type ::= void
+Value ::= Item Value'
+Value' ::= ε
+Value' ::= + Item Value'
+Value' ::= - Item Value'
+Vars ::= ε
+Vars ::= , IDN Init Vars
